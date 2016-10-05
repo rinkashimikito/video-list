@@ -29,6 +29,10 @@ To run Grunt in watch mode:
 grunt watch
 ```
 
+### Get dev verion
+If you want to have latest version you need to:
+1. Checkout master branch
+2. ``` git checkout -t origin/video_list_feature ```
 
 ### Project structure
 
