@@ -1,1 +1,6 @@
 node_modules
+.DS_Store
+.sass-cache/
+webapp/modules/main.js
+webapp/modules/main.min.js
+webapp/style/
