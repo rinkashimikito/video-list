@@ -8,6 +8,7 @@ Client Installation
 
 1. Install nodeJS
 2. Install required nodejs modules via npm
+3. Install grunt ``` npm install -g grunt-cli ``` if you don't have one
 3. Ruby and Sass
 
 ```
