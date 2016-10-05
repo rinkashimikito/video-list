@@ -1,1 +1,39 @@
-# video-list
+Video list
+============
+
+Responsive page showing videos from BBC's endpoint.
+
+Client Installation
+--------------------
+
+1. Install nodeJS
+2. Install required nodejs modules via npm
+3. Ruby and Sass
+
+```
+npm install
+gem install sass
+```
+
+3. Run `grunt` to build JS and CSS files and run tests
+
+
+### Watching for changes
+Grunt has been setup with a watch task to automatically watch JS and SCSS files for modifications, then build and files when they're modified.
+
+To run Grunt in watch mode:
+```
+grunt watch
+```
+
+
+### Project structure
+
+webapp  
+    modules  
+        app.src
+            app.js
+    sass
+        style.scss
+    style  
+        style.css                - main css stylesheet  
