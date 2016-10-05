@@ -27,7 +27,7 @@ var bbc = (function() {
             this.getImages();
         },
 
-        filterItems: function(section) {
+        filterItems: function() {
             // // console.log(document.querySelectorAll('[data-section]').dataset.section == section);
             // var list = document.getElementById('select-filter').getElementsByTagName('LI');
             // list.filter(function(element){
