@@ -80,6 +80,28 @@ module.exports = function(grunt) {
             }
         },
 
+        // jasmine unit test runner task
+        // jasmine: {
+        //     src: ['*.js'],
+        //     options: {
+        //         specs: 'spec/**/*.spec.js',
+
+        //         junit: {
+        //             path: 'reports',
+        //             consolidate: true
+        //         },
+
+        //         keepRunner: true,
+
+        //         //template: require('grunt-template-jasmine-requirejs'),
+        //         templateOptions: {
+        //             requireConfig: {
+        //                 baseUrl: 'modules/',
+        //             }
+        //         }
+        //     }
+        // }
+
     });
 
 
