@@ -15,7 +15,9 @@ npm install
 gem install sass
 ```
 
-3. Run `grunt` to build JS and CSS files and run tests
+
+### Running the build
+Run `grunt` to build JS and CSS files and run tests
 
 
 ### Watching for changes
