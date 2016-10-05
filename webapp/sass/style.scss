@@ -1,8 +1,86 @@
 @charset 'UTF-8';
+$white: #ffffff;
+$black: #111111;
+$boxBackground: #383838;
 
 body {
     font: 10px/13px 'Lucida Sans', sans-serif;
     margin: 0;
     padding: 0;
-    background: #111111;
+    background: $black;
+}
+
+h1 {
+    font-size: 1.4em;
+    font-weight: 400;
+    line-height: 1.2em;
+    padding: 1em;
+    background-color: $white;
+}
+
+#grid-list {
+    overflow: hidden;
+    margin: auto;
+    padding: 0 8px;
+
+    li {
+        position: relative;
+        float: left;
+        width: 20%;
+        list-style-type: none;
+
+        .box-card {
+
+            a {
+                text-decoration: none;
+                display: block;
+
+                .box-body {
+                    padding: 2%;
+
+                    .box-card__panel,
+                    .box-card__description,
+                    .box-card__details {
+                        overflow: hidden;
+                    }
+
+                    .box-card__panel {
+                        position: relative;
+
+                        span {
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            padding: 1em;
+                            font-weight: 700;
+                            color: #fff;
+                        }
+                    }
+
+
+                    .box-card__details {
+                        padding: 8px;
+                    }
+
+                    img {
+                        max-width: 100%;
+                        cursor: pointer;
+                    }
+
+                    h3 {
+                        font-size: 1.4em;
+                        line-height: 1.6em;
+                        height: 3.2em;
+                        margin: 0;
+                        padding: 8px;
+                        text-decoration: none;
+                        color: $white;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                }
+            }
+        }
+    }
 }
