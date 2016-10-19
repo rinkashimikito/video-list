@@ -10,11 +10,11 @@ var bbc = (function() {
 
         init: function(gridId) {
             this.createGridWrapper(gridId);
-            this.fetchData(this.dataUrl);
+            this.fetchData(this.dataUrl)
             this.attachEvents();
         },
         fetchData: function(url){
-            // var resp = null;
+            var resp = null;
 
             this.xhrCall(url, this.renderData.bind(this));
         },
@@ -29,19 +29,21 @@ var bbc = (function() {
             this.getImages();
         },
 
-        filterItems: function() {
-            // var list = document.getElementById('select-filter').getElementsByTagName('LI');
+        filterItems: function(section) {
+            // console.log(document.querySelectorAll('[data-section]').dataset.section == section);
+            var list = document.getElementById('select-filter').getElementsByTagName('LI');
+console.log(list);
+console.log(document.getElementById('#'+ gridName));
+            list.filter(function(element){
+                element.dataset.section == section;
+            })
 
-            // list.filter(function(element){
-            //     element.dataset.section === section;
-            // });
-
-            // console.log(list);
+            console.log(list);
         },
 
 
-        attachEvents: function() {
-            document.getElementById('select-filter').onchange = function() {
+        attachEvents: function(gridName) {
+            document.getElementById('select-filter').onchange = function(e) {
                 this.filterItems(document.getElementById('select-filter').value);
             }.bind(this);
         },
@@ -52,7 +54,7 @@ var bbc = (function() {
             select[0] = new Option('Select section','',false,false);
 
             sections.forEach(function(section, i){
-                select[i + 1] = new Option(section,section.replace(' ', ''),false,false);
+                select[i + 1] = new Option(section,section.replace(' ', ''),false,false)
             }, this);
 
 
@@ -142,7 +144,7 @@ var bbc = (function() {
         getImages: function() {
             new window.Imager({
                 availableWidths: [336, 464, 656],
-                widthInterpolator: function(width) {
+                widthInterpolator: function(width, pixelRatio) {
                     return width + 'xn';
                 },
                 lazyload: true
