@@ -10,11 +10,11 @@ var bbc = (function() {
 
         init: function(gridId) {
             this.createGridWrapper(gridId);
-            this.fetchData(this.dataUrl)
+            this.fetchData(this.dataUrl);
             this.attachEvents();
         },
         fetchData: function(url){
-            var resp = null;
+            // var resp = null;
 
             this.xhrCall(url, this.renderData.bind(this));
         },
@@ -29,21 +29,19 @@ var bbc = (function() {
             this.getImages();
         },
 
-        filterItems: function(section) {
-            // console.log(document.querySelectorAll('[data-section]').dataset.section == section);
-            var list = document.getElementById('select-filter').getElementsByTagName('LI');
-console.log(list);
-console.log(document.getElementById('#'+ gridName));
-            list.filter(function(element){
-                element.dataset.section == section;
-            })
+        filterItems: function() {
+            // var list = document.getElementById('select-filter').getElementsByTagName('LI');
 
-            console.log(list);
+            // list.filter(function(element){
+            //     element.dataset.section === section;
+            // });
+
+            // console.log(list);
         },
 
 
-        attachEvents: function(gridName) {
-            document.getElementById('select-filter').onchange = function(e) {
+        attachEvents: function() {
+            document.getElementById('select-filter').onchange = function() {
                 this.filterItems(document.getElementById('select-filter').value);
             }.bind(this);
         },
@@ -54,7 +52,7 @@ console.log(document.getElementById('#'+ gridName));
             select[0] = new Option('Select section','',false,false);
 
             sections.forEach(function(section, i){
-                select[i + 1] = new Option(section,section.replace(' ', ''),false,false)
+                select[i + 1] = new Option(section,section.replace(' ', ''),false,false);
             }, this);
 
 
@@ -144,7 +142,7 @@ console.log(document.getElementById('#'+ gridName));
         getImages: function() {
             new window.Imager({
                 availableWidths: [336, 464, 656],
-                widthInterpolator: function(width, pixelRatio) {
+                widthInterpolator: function(width) {
                     return width + 'xn';
                 },
                 lazyload: true
