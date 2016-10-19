@@ -1,8 +1,164 @@
 @charset 'UTF-8';
+$white: #ffffff;
+$black: #111111;
+$boxBackground: #383838;
+$borderGrey: #484848;
+$hoverGrey: #666666;
+$transparentWhite: rgba(156, 10, 13, 0.7);
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin transition($property, $duration) {
+  -webkit-transition: $property $duration;
+     -moz-transition: $property $duration;
+      -ms-transition: $property $duration;
+          transition: $property $duration;
+}
+@mixin transform-scale($amount) {
+  -webkit-transform: scale($amount);
+     -moz-transform: scale($amount);
+      -ms-transform: scale($amount);
+          transform: scale($amount);
+}
 
 body {
     font: 10px/13px 'Lucida Sans', sans-serif;
     margin: 0;
     padding: 0;
-    background: #111111;
+    background: $black;
+}
+
+h1 {
+    font-size: 1.4em;
+    font-weight: 400;
+    line-height: 1.2em;
+    padding: 1em;
+    background-color: $white;
+}
+
+#grid-list {
+    overflow: hidden;
+    margin: auto;
+    padding: 0 8px;
+
+    li {
+        @include transition(all, 0.3s);
+
+        position: relative;
+        float: left;
+        width: 20%;
+        list-style-type: none;
+
+        &:hover {
+            transform: scale(1.01);
+            z-index: 10;
+
+            .box-card a .box-body .box-card__description {
+                background-color: $borderGrey;
+            }
+
+            .box-card a .box-body .box-card__details {
+                border-top: 1px solid $hoverGrey;
+            }
+        }
+
+        &.hidden {
+            display: none;
+        }
+
+        .box-card {
+
+            a {
+                text-decoration: none;
+                display: block;
+
+                .box-body {
+                    padding: 2%;
+
+                    .box-card__panel,
+                    .box-card__description,
+                    .box-card__details {
+                        overflow: hidden;
+                        @include transition(all, 0.3s);
+                    }
+
+                    .box-card__panel {
+                        position: relative;
+
+                        span {
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            padding: 1em;
+                            font-weight: 700;
+                            color: #fff;
+                            background-color: $transparentWhite;
+                        }
+                    }
+
+                    .box-card__description {
+                        background-color: $boxBackground;
+                        // padding: 8px;
+
+                    }
+
+                    .box-card__details {
+                        padding: 8px;
+                        border-top: 1px solid $borderGrey;
+
+                        span {
+                            color: $white;
+                        }
+                    }
+
+                    img {
+                        max-width: 100%;
+                        cursor: pointer;
+                    }
+
+                    h3 {
+                        font-size: 1.4em;
+                        line-height: 1.6em;
+                        height: 3.2em;
+                        margin: 0;
+                        padding: 8px;
+                        text-decoration: none;
+                        color: $white;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 480px) {
+    /* Smartphone view: 1 tile */
+    #grid-list li {
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 650px) and (min-width: 481px) {
+    /* Tablet view: 2 tiles */
+    #grid-list li {
+        width: 50%;
+    }
+}
+@media only screen and (max-width: 1050px) and (min-width: 651px) {
+    /* Small desktop / ipad view: 3 tiles */
+    #grid-list li {
+        width: 33.3%;
+    }
+}
+@media only screen and (max-width: 1290px) and (min-width: 1051px) {
+    /* Medium desktop: 4 tiles */
+    #grid-list li {
+        width: 25%;
+    }
 }
