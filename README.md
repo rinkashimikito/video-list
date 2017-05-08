@@ -1,7 +1,7 @@
 Video list
 ============
 
-Responsive page showing videos from BBC's endpoint.
+Responsive page showing videos from BBC's endpoint. (more in video_list_feature branch)
 
 Client Installation
 --------------------
